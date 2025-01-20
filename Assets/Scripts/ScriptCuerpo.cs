@@ -25,8 +25,18 @@ public class ScriptCuerpo : MonoBehaviour
             Debug.Log("Vidas: " + scriptJugador.vidas );
             scriptJugador.Perdiste = true;
             scriptJugador.cuerpoJugador.constraints = RigidbodyConstraints2D.FreezeAll; 
-            
+
             scriptJugador.canvas.gameObject.SetActive(true);
+        }
+
+
+        if(c1.tag == "Estrellita"){
+            scriptJugador.estrellas ++ ;
+            Debug.Log("Estrellas: " + scriptJugador.estrellas );
+            Destroy(c1.gameObject);
+
+            //scriptJugador.Perdiste = true;
+            //scriptJugador.cuerpoJugador.constraints = RigidbodyConstraints2D.FreezeAll; 
         }
     }
 }
