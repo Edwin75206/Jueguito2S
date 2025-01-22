@@ -20,6 +20,7 @@ public class ScriptJugador : MonoBehaviour
     public Canvas canvas;
     public Text textoPuntos;
     public Text textoVidas;
+    public float tiempo = 0;
 
 
     // Start is called before the first frame update
