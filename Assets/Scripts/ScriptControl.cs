@@ -51,6 +51,11 @@ public class ScriptControl : MonoBehaviour
         {
             GameOver();
         }
+
+        if (scriptJugador.estrellas == 1)
+        {
+            WinnerGame();
+        }
     }
 
     void FixedUpdate(){
