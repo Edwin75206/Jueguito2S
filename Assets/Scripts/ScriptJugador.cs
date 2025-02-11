@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,9 +17,8 @@ public class ScriptJugador : MonoBehaviour
     public int estrellas = 0;
 
     public bool Perdiste = false;
-    public Canvas canvas;
-    public Text textoPuntos;
-    public Text textoVidas;
+    //public Canvas canvas;
+    // Variable para el tiempo
     public float tiempo = 0;
 
 
@@ -28,14 +27,12 @@ public class ScriptJugador : MonoBehaviour
     {
         cuerpoJugador = GetComponent<Rigidbody2D>();
         
-        canvas.gameObject.SetActive(false);
+        //canvas.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        textoPuntos.text = "Puntos: " + estrellas;
-        textoVidas.text = "Vidas: " + vidas;
         float horizontal = Input.GetAxis("Horizontal"); //controlar movimiento horizontal
         miAnimacion.SetFloat("Velocidad", Mathf.Abs(horizontal));   //Este valor sale del animator para asi generar la funcion de que camine cada que alcance la velocidad dada
         miAnimacion.SetBool("Suelo", enSuelo);

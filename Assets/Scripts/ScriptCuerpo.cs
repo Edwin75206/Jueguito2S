@@ -26,7 +26,7 @@ public class ScriptCuerpo : MonoBehaviour
             scriptJugador.Perdiste = true;
             scriptJugador.cuerpoJugador.constraints = RigidbodyConstraints2D.FreezeAll; 
 
-            scriptJugador.canvas.gameObject.SetActive(true);
+           // scriptJugador.canvas.gameObject.SetActive(true);
         }
 
 

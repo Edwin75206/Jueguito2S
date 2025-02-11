@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class ScriptTiempo : MonoBehaviour
 {
-    private ScriptJugador scriptJugador;
+    public ScriptJugador scriptJugador;
     public Text txtTiempo;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         txtTiempo.text = "Tiempo: 0:00";
         scriptJugador = FindObjectOfType<ScriptJugador>();

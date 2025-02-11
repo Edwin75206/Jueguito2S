@@ -15,11 +15,17 @@ public class ScriptPiesJugador : MonoBehaviour
         if(c1.tag == "Agua"){
             scriptJugador.vidas -- ;
             Debug.Log("Vidas: " + scriptJugador.vidas );
-            scriptJugador.Perdiste = true;
-            scriptJugador.cuerpoJugador.constraints = RigidbodyConstraints2D.FreezeAll; 
+            if (scriptJugador.vidas <= 0){
+                scriptJugador.Perdiste = true;
+                scriptJugador.cuerpoJugador.constraints = RigidbodyConstraints2D.FreezeAll; 
+            }else{
+                scriptJugador.gameObject.transform.position = new Vector3(-9.3307f, 0.5114582f,0);    
+            }
+            
         }
         if(c1.tag == "Perro"){
             Destroy(c1.gameObject);
+            //scriptJugador.gameObject.transform.position = new Vector3(-13.8f, 0.6f,0);
         }
     }
 
