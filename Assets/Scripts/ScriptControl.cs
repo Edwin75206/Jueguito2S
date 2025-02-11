@@ -27,15 +27,19 @@ public class ScriptControl : MonoBehaviour
     public GameObject canvasPrincipal;
     public GameObject canvasGanaste;
     public GameObject canvasGameover;
+    public GameObject canvasTablero;
     // Start is called before the first frame update
     void Start()
     {
         canvasPause.SetActive(false);
         canvasGameover.SetActive(false);
-        canvasPrincipal.SetActive(false);
+        canvasPrincipal.SetActive(true);
         canvasGanaste.SetActive(false);
-        Objetonivel = Instantiate(NivelPreFab[indiceNivel]);
-    Objetonivel.transform.SetParent(this.transform);
+        if (Objetonivel == null)
+        {
+            Objetonivel = Instantiate(NivelPreFab[indiceNivel]);
+            Objetonivel.transform.SetParent(this.transform);
+        }
 
         
     }
@@ -54,9 +58,17 @@ public class ScriptControl : MonoBehaviour
 
         if (scriptJugador.estrellas == 1)
         {
+            Destroy(Objetonivel);
+            Objetonivel = Instantiate(NivelPreFab[1]);
+            Objetonivel.transform.SetParent(this.transform);
+        }
+        else if (scriptJugador.estrellas == 4){
             WinnerGame();
         }
     }
+
+
+
 
     void FixedUpdate(){
 
@@ -70,6 +82,10 @@ public class ScriptControl : MonoBehaviour
 
     public void PlayGame(){
         SceneManager.LoadSceneAsync(0);
+    }
+    public void Reload(){
+        canvasPrincipal.SetActive(false);
+        canvasTablero.SetActive(true);
     }
 
     public void PauseGame(){
